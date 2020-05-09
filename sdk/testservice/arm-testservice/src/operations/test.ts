@@ -28,22 +28,26 @@ export class Test {
 
   /**
    * Get test.
+   * @param testParam New param to test in 2020-02-01
    * @param [options] The optional parameters
    * @returns Promise<Models.TestGetResponse>
    */
-  get(options?: msRest.RequestOptionsBase): Promise<Models.TestGetResponse>;
+  get(testParam: string, options?: msRest.RequestOptionsBase): Promise<Models.TestGetResponse>;
   /**
+   * @param testParam New param to test in 2020-02-01
    * @param callback The callback
    */
-  get(callback: msRest.ServiceCallback<Models.TestGetResult>): void;
+  get(testParam: string, callback: msRest.ServiceCallback<Models.TestGetResult>): void;
   /**
+   * @param testParam New param to test in 2020-02-01
    * @param options The optional parameters
    * @param callback The callback
    */
-  get(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.TestGetResult>): void;
-  get(options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.TestGetResult>, callback?: msRest.ServiceCallback<Models.TestGetResult>): Promise<Models.TestGetResponse> {
+  get(testParam: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.TestGetResult>): void;
+  get(testParam: string, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.TestGetResult>, callback?: msRest.ServiceCallback<Models.TestGetResult>): Promise<Models.TestGetResponse> {
     return this.client.sendOperationRequest(
       {
+        testParam,
         options
       },
       getOperationSpec,
@@ -57,7 +61,8 @@ const getOperationSpec: msRest.OperationSpec = {
   httpMethod: "GET",
   path: "providers/Microsoft.TestService/test",
   queryParameters: [
-    Parameters.apiVersion
+    Parameters.apiVersion,
+    Parameters.testParam
   ],
   headerParameters: [
     Parameters.acceptLanguage

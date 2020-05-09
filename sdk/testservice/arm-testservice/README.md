@@ -35,7 +35,8 @@ const subscriptionId = process.env["AZURE_SUBSCRIPTION_ID"];
 
 msRestNodeAuth.interactiveLogin().then((creds) => {
   const client = new TestServiceClient(creds, subscriptionId);
-  client.test.get().then((result) => {
+  const testParam = "testtestParam";
+  client.test.get(testParam).then((result) => {
     console.log("The result is:");
     console.log(result);
   });
@@ -78,7 +79,8 @@ See https://github.com/Azure/ms-rest-browserauth to learn how to authenticate to
           authManager.login();
         }
         const client = new Azure.TestService.TestServiceClient(res.creds, subscriptionId);
-        client.test.get().then((result) => {
+        const testParam = "testtestParam";
+        client.test.get(testParam).then((result) => {
           console.log("The result is:");
           console.log(result);
         }).catch((err) => {

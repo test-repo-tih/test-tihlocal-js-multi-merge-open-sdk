@@ -30,3 +30,13 @@ export const apiVersion: msRest.OperationQueryParameter = {
     }
   }
 };
+export const testParam: msRest.OperationQueryParameter = {
+  parameterPath: "testParam",
+  mapper: {
+    required: true,
+    serializedName: "test-param",
+    type: {
+      name: "String"
+    }
+  }
+};
